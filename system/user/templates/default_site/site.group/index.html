@@ -1,0 +1,92 @@
+{layout="_shared/nav-bar-layout"}
+    {exp:channel:entries channel="home_page" dynamic="no"}
+    <div id="home-content">
+        <div class="row-expanded">
+            <div class="row-expanded">
+                <div class="columns large-12" id="banner-top">
+                    <h1>{tab_heading}</h1>
+                    <ul class="tabs" data-tabs id="example-tabs">
+                        {home_tabs limit="6"}
+                        <li class="tabs-title {if "{home_tabs:count}" == "1"}is-active{/if}"><a href="#panel{home_tabs:count}" aria-selected="true">{home_tabs:tab_title}</a></li>
+                        {/home_tabs}
+                    </ul>
+                </div>
+            </div>
+            <div class="columns large-12 tabs-content" data-tabs-content="example-tabs">
+            {home_tabs limit="6"}
+            
+                <div id="panel{home_tabs:count}" class="tabs-panel {if "{home_tabs:count}" == "1"}is-active{/if}" style="background-image: url({home_tabs:background_link})">
+                    <div class="row-expanded">
+                        <div class="columns large-6 end">
+                            <p class="tab-p">{home_tabs:tab_body}</p>
+                            <p><a href="{home_tabs:tab_link}" class="button warning">View Products</a></p>
+                        </div>
+                    </div>
+                </div>
+            {/home_tabs}
+            </div>
+                    
+
+
+            <div id="div-size" class="row-expanded">
+                <div class="column large-12">
+                    <a href="#middle-content" class="float-center" id="go-down"><img src="/img/icon_scroll-arrow.png"/></a>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+    
+    <div data-equalizer data-equalize-on="medium" id="banner-middle">
+        <div class="row-expanded align-middle" style="background: none;">
+            <div class="columns large-12" style="background: none;">
+                <a id="middle-content"></a>
+                {home_middle limit="4"}
+                <div class="callout columns medium-6 large-3 Equal" data-equalizer-watch id="first-row">
+                    <a class="home-middle" href="{home_middle:middle_link}">
+                        <h2 style="background: url({home_middle:image_link}) no-repeat top center">{home_middle:title}</h2>
+                        <p>{home_middle:middle_body}</p>
+                    </a>
+                </div>
+                {/home_middle}
+        
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        {home_middle}
+        .home-middle h2{
+            padding-bottom: 65px;
+        }
+        .home-middle:hover h2 {
+            background: url({home_middle:hover_link});
+        }
+        {/home_middle}
+    </style>
+    
+    
+    <div>
+        <div class="row-expanded" id="products">
+            <div class="large-12 columns" data-equalizer>
+                <h2 class="float-center">{product_heading}</h2>
+                {home_products limit="3"}
+                <div class="card large-4 columns end {if "{home_products:count}" == "1"}First{if:elseif "{home_products:count}" == "2"}Second{if:else}Third{/if}" data-equalizer-watch>
+                    <a href="https://devbierer.dubosewebgroup.com/shop/product-detail/st800pgn">
+                        <img src="https://devbierer.dubosewebgroup.com/uploads/product_images/ST800PGN_2.jpg"/>
+                    </a>
+                    <div class="card-section">
+                        <h3><a href="{home_products:product_link}">{home_products:product_title}</a></h3>
+                        <p>{home_products:product_body}</p>
+                        <p><a href="{home_products:product_link}" class="button">View Details</a></p>
+                    </div>
+                </div>
+                {/home_products}
+            </div>
+        </div>
+    </div>
+    {/exp:channel:entries}
+    
+    {embed="_shared/contact"}

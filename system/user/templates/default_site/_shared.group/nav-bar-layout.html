@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title> Home| Bierer Meters</title>
+    <link href="/_css/main.css" rel="stylesheet" />
+    <link href="/_css/foundation.min.css" rel="stylesheet" />
+    <link href="/_css/jquery.mmenu.all.css" rel="stylesheet" />
+    <link href="/_css/second.css" rel="stylesheet" />
+    
+
+</head>
+
+<body style="overflow-x: hidden;">
+    
+        <!--MOBILE MENU-->
+    <div class="mobile-menu-wrap">
+        <div class="mobile-menu">
+            <div class="mtop-menu" id="menu">
+                <ul>
+                    <li><a href="https://devbierer.dubosewebgroup.com/">Home</a></li>
+                    <li><a href="https://devbierer.dubosewebgroup.com/shop">Products</a></li>
+                    <li><a href="https://devbierer.dubosewebgroup.com/why">Why Bierer</a></li>
+                    <li><a href="https://devbierer.dubosewebgroup.com/resources">Resources</a></li>
+                    <li><a href="#contacts">Contact</a></li>
+                    <li><a href="https://devbierer.dubosewebgroup.com/repairs">Repairs</a></li>
+                </ul>
+            </div>
+        </div>
+    
+    <span id="back-up"></span>
+
+    <header class="Fixed main-nav">
+        <div class="row expanded">
+	        <div class="nav-icon-wrap">
+	            <a href="#menu">
+	                <div class="hamburger hamburger--collapse">
+	                    <div class="hamburger-box">
+	                       <div class="hamburger-inner"></div>
+	                    </div>
+	                </div>
+	            </a>
+	        </div>
+
+            <div data-sticky-container id="nav-bar">
+                <div class="title-bar" data-sticky data-options="marginTop:0;" style="width: 100%" data-top-anchor="1">
+
+                    <div class="title-bar-left">
+                        <a href="home.html" title="Bierer Meters">
+                        <img src="/img/Bierer-logo.png" alt="Bierer Meters"/>
+                    </a>
+                    </div>
+
+                    <div class="title-bar-right">
+                        <div>
+                            <ul class="dropdown menu float-right" data-dropdown-menu id="top-right-nav">
+                                <li><input type="search" name="searchbar" placeholder="Search Products" /></li>
+                                <li class="is-dropdown-submenu-parent"><a class="cart">Cart (<span class="number">0</span>)</a>
+                                    <ul class="menu">        <!--CART DROPDOWN-->
+                             <div id="cart-content">
+                                <h6>Your Cart</h6>
+                                <div>
+                                    <table class="nostriped">
+                                        <tbody>
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr><p class="table-content">No Items in the cart</p></tr>
+                                        </tfoot>
+                                    </table>
+                                    <form action="https://devbierer.dubosewebgroup.com/" method="post">
+                                        <button type="submit" value="shop/checkout/prompt"  name="return" class="button float-center">Checkout</button>
+                                    </form>
+                                    <br/>
+                                    <p><a href="https://devbierer.dubosewebgroup.com/shop/view_cart/" class="float-left">View Cart</a></p>
+                                </div>
+                            </div>
+                        </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <br/> <br/> <br/> <br/> <br/> <br/>
+                        <div>
+                            <ul class="dropdown menu" data-dropdown-menu id="nav-menu">
+                                <li class="active"><a href="/">Home</a></li>
+                                <li><a href="https://devbierer.dubosewebgroup.com/shop">Products</a></li>
+                                <li><a href="https://devbierer.dubosewebgroup.com/why">Why Bierer</a></li>
+                                <li><a href=" https://devbierer.dubosewebgroup.com/resources">Resources</a></li>
+                                <li><a href="#contacts">Contacts</a></li>
+                                <li><a href="https://devbierer.dubosewebgroup.com/repairs" class="button repair">Repairs</a></li>
+                                <li class="is-dropdown-submenu-parent"><a class="button"><span>Account Login</span></a>
+                                    <ul class="menu">       <!--ACCOUNT LOGIN DROPDOWN-->
+                            <div>
+                                <form action="https://devbierer.dubosewebgroup.com/" method="post">
+                                    <div class="row">
+                                        <div class="large-12 columns"> 
+                                            <label>Username</label>
+                                            <input type="text" name="username" value="" placeholder="Username"/><br/>
+                                            <label>Password</label>
+                                            <input type="text" name="password" value="" placeholder="Password"/><br/>
+                                            <button class="button" type="submit">Login</button><br/>
+                                            <p><a href="https://devbierer.dubosewebgroup.com/account/forgot_password">Forgot username or password?</a></p>
+                                        </div>
+                                    </div>
+                                </form>
+                                    <div class="row">
+                                        <button class="register"><a class="move"><small>New to Bierer?</small><br/><span>Register Here</span></a></button>
+                                    </div>
+                                    </div>
+                                </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {layout:contents}

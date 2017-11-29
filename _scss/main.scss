@@ -1,0 +1,1471 @@
+@import 'partials/_reset.scss';
+
+@font-face{
+    font-family: DroidSans;
+    src: url(assets/_fonts/DroidSans.ttf);
+}
+
+@font-face{
+    font-family: Oswald;
+    src: url(assets/_fonts/Oswald-Bold.ttf);
+}
+
+
+body {
+    overflow: scroll;
+}
+
+// MOBILE MENU //
+.mobile-menu-wrap {
+  position: relative;
+  z-index: 901;
+}
+
+.nav-icon-wrap {
+  display: none;
+  top: 26px;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+  z-index: 101;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  a {
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 1px 0 0;
+    position: relative;
+    margin: -1px auto 1px;
+  }
+}
+
+.hamburger {
+  border: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  overflow: visible;
+  padding: 10px 0;
+  text-transform: none;
+  display: inline-block;
+  transition-duration: 0.15s;
+  background-color: transparent;
+  transition-property: opacity, filter;
+  transition-timing-function: linear;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 23px;
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  &:before {
+    top: -8px;
+  }
+  &:after {
+    bottom: -10px;
+  }
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+  &::before, &::after {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+  &::before, &::after {
+    content: "";
+    display: block;
+  }
+}
+
+.hamburger--collapse {
+  .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.15s;
+    transition-delay: 0.15s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    &:after {
+      top: -16px;
+      transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+    }
+    &:before {
+      transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+  }
+  &.is-active .hamburger-inner {
+    top: 23px;
+    left: 1px;
+    transition-delay: 0.32s;
+    transform: translate3d(0, -10px, 0) rotate(-45deg);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    &:after {
+      top: 0;
+      opacity: 0;
+      transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.27s linear;
+    }
+    &:before {
+      top: 0;
+      transform: rotate(-90deg);
+      transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.42s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  }
+}
+
+#my-menu {
+  z-index: 2;
+}
+
+.mobile-menu {
+  left: 0;
+  top: 96px;
+  width: 100%;
+  display: none;
+  position: absolute;
+  #my-menu {
+    width: 100%;
+    z-index: 101;
+    height: 100%;
+    display: block;
+    margin-top: 100px;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+
+.mm-panel.mm-hasnavbar .mm-navbar {
+  display: none;
+}
+
+.is-reveal-open .mm-slideout {
+    z-index: 1000;
+}
+
+.mm-listview {
+  > li > {
+    a, span {
+      font-family: 'Droid Sans', sans-serif;
+      color: #fff;
+      font-size: 22px;
+      line-height: 22px;
+      padding: 22px 20px 5px;
+      font-weight: 600;
+    }
+  }
+  a {
+    font-family: 'Droid Sans', sans-serif;
+    color: #fff;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 22px 20px 5px;
+    font-weight: 600;
+  }
+}
+
+.mm-panels > .mm-panel,
+.mm-navbar.mm-hasbtns,
+.mm-menu > .mm-navbar {
+  background-color: #141414;
+}
+
+.mm-panels>.mm-panel.mm-hasnavbar {
+    padding-top: 125px;
+}
+
+.mm-listview {
+  .mm-next + {
+    a, span {
+      font-size: 22px;
+      line-height: 22px;
+      padding: 22px 20px 5px;
+    }
+  }
+  > li {
+    > {
+      a, span {
+        padding: 22px 20px 5px;
+      }
+    }
+    &:not(.mm-divider):after {
+      left: 12px;
+      right: 12px;
+    }
+  }
+}
+
+.mm-menu .mm-navbar {
+
+  a {
+    color: #000;
+    width: 100%;
+    float: none;
+    bottom: 120px;
+    display: block;
+    font-size: 22px;
+    max-width: 125px;
+    position: relative;
+    margin: 0 0 25px 20px;
+
+    &:hover {
+      background-color: #ffd200;
+    }
+
+  }
+
+  > * {
+    color: #000;
+    width: 100%;
+    float: none;
+    bottom: 150px;
+    display: block;
+    font-size: 22px;
+    max-width: 125px;
+    position: relative;
+    margin: 0 0 25px 20px;
+  }
+
+}
+
+.mm-listview > li {
+  border-color: #ffd200;
+  .mm-next {
+    border-color: #ffd200;
+    &:before {
+      border-color: #ffd200;
+    }
+  }
+  &:after {
+    border-color: #ffd200;
+  }
+}
+
+mm-menu .mm-navbar a,
+.mm-menu .mm-navbar>* {
+    color: #000;
+    width: 100%;
+    float: none;
+    bottom: 160px;
+    margin: 0 auto;
+    display: block;
+    font-size: 20px;
+    max-width: 100%;
+    position: relative;
+}
+
+.mm-menu .mm-navbar a.button {
+    font-size: 20px;
+    max-width: 220px;
+    padding: .5em;
+    margin: -20px auto 22px;
+}
+
+.mm-menu .mm-navbar a.register {
+    color: #ffd200;
+    bottom: 120px;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    max-width: none;
+    margin: 0 auto;
+    height: 64px;
+
+    span {
+        padding: 0;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+
+    &:hover {
+        background-color: #000;
+    }
+
+}
+
+.mm-menu .mm-navbar a.cart {
+    background-color: #ffd200;
+    display: inline-block;
+    padding: 0 0 10px;
+    line-height: 22px;
+    font-weight: 600;
+    max-width: 100%;
+    font-size: 20px;
+    margin: 0 auto;
+    bottom: 108px;
+    color: #000;
+
+    .fa {
+        top: 2px;
+        font-size: 30px;
+        position: relative;
+        margin: 0 10px 0 -10px;
+    }
+
+}
+
+.m-search {
+  top: 14px;
+  right: 0px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.4);
+
+  &:before {
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  &.fa-arrow-circle-o-right {
+    top: 11px;
+    visibility: hidden;
+    transform: rotate(-180deg);
+
+    &:before {
+      font-size: 30px;
+    }
+
+  }
+
+}
+
+// Main Nav //
+
+#top-right-nav{
+    padding-top: 20px;
+    padding-right: 110px;
+}
+
+#top-right-nav li input{
+    border-radius: 7px;
+    height: 25px;
+    width: 185px;
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_search-hover.png);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 158px 4px;
+}
+
+#cart-content div p a:hover{
+    color: grey;
+    background: none;
+    margin-left: -15px;
+}
+
+.main-nav{
+    height: 0px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.cart{
+    color: white;
+    display: inline-block;
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_cart.png);
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    background-size: 30px;
+    margin-left: 15px;
+    width: 117px;
+}
+
+#top-right-nav li a:hover {
+    color: grey;
+    display: inline-block;
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_cart.png);
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    background-size: 30px;
+    margin-left: 15px;
+    width: 117px;
+}
+
+
+
+.cart:hover{
+    color: white;
+}
+
+#nav-menu{
+    font-size: 24px;
+    margin-top: -67px;
+}
+
+#nav-menu li a{
+    color: #fff;
+}
+
+#nav-menu li a:hover{
+    color: #ffd200;
+}
+
+#nav-menu li.active a{
+    color: #ffd200;
+}
+
+#nav-menu li a.button{
+    background-color: #ffd200;
+    color: black;
+    margin-right: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#nav-menu li a.button:hover{
+    background-color: white;
+}
+
+.dropdown.menu>li.is-dropdown-submenu-parent>a::after{
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    content: '';
+    border-bottom-width: 0;
+    border-top-style: none;
+    border-color: none;
+    right: 5px;
+    left: auto;
+    margin-top: -3px;
+}
+
+#top-right-nav.dropdown.menu>li.opens-right>.is-dropdown-submenu {
+    top: 100%;
+    right: 25px;
+    left: -345px;
+    margin-top: 5px;
+}
+
+
+#nav-menu.dropdown.menu>li.opens-right>.is-dropdown-submenu {
+    top: 100%;
+    right: 13px;
+    left: -160px;
+    background-color: white;
+    height: 325px;
+}
+
+#cart-content h6{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 50px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.table-content{
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 5px;
+}
+
+#cart-content form button{
+    background-color: #ffd200;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    height: 45px;
+    width: 115px;
+}
+
+#cart-content form button:hover{
+    background-color: black;
+    color: #ffd200;
+}
+
+#cart-content p a{
+    color: #ffd200;
+    padding-bottom: 25px;
+}
+
+#nav-menu form label{
+    margin-right: 199px;
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+#nav-menu form input{
+    width: 225px;
+    margin-right: 40px;
+}
+
+#nav-menu form button{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    width: 115px;
+    height: 37px;
+    border-radius: 5px;
+    margin-left: 90px;
+    margin-top: 15px;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#nav-menu form button:hover{
+    background-color: black;
+    color: #ffd200;
+}
+
+#nav-menu p a{
+    color: black;
+    font-size: 17px;
+    margin-right: 17px;
+    margin-top: -35px;
+    padding-bottom: 0px;
+}
+
+.register{
+    background-color: black;
+    width: 270px;
+    height: 50px;
+    margin-right: 16px;
+    border-radius: 5px;
+    margin-top: -4px;
+    
+    a small{
+        font-size: 12px;
+        color: #ffd200;
+    }
+}
+
+.register span{
+    color: #ffd200;
+}
+
+.move{
+    margin-top: -12px;
+}
+
+a.button {
+    background-color: #ffd200;
+    color: black;
+}
+
+.title-bar-left a img{
+    width: 250px;
+}
+
+div a img {
+    margin-left: 35px;
+    margin-top: 0px;
+    width: 56px;
+}
+
+.sticky.is-anchored {
+    position: fixed; 
+    right: auto;
+    left: auto;
+    top: 0;
+    z-index: 10;
+}
+
+// TABS //
+
+.tabs {
+    overflow: hidden;
+    border: none;
+    
+}
+
+#home-content{
+    margin-top: 0px;
+}
+
+#home-content ul.tabs {
+    background: none;
+    border:none;
+    margin-left: 10px;
+    padding-top: 35px;
+}
+
+#home-content ul.tabs li a {
+    background: none;
+    color: #ffd200;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 1.4em;
+}
+
+#home-content ul.tabs li.is-active a{
+    border-bottom: 3px solid white;
+}
+
+.tabs-content {
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+}
+
+#banner-top{
+    padding-top: 0px;
+}
+
+#banner-top ul{
+    margin-top: 0px; 
+}
+
+#home-content .tabs-panel {
+    background-image: url(https://devbierer.dubosewebgroup.com/uploads/page_images/Coverfor1overlay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    min-height: 875px;
+    margin-top: -372px;
+    margin-left: -25px;
+    margin-right: -28px;
+    margin-bottom: -26px;
+    
+}
+
+.tabs-panel p a.button{
+    background-color: #ffd200;
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 12px;
+    margin-left: 20px;
+}
+
+.tabs-panel p a.button:hover{
+    background-color: white;
+    color: black;
+}
+
+#panel1 ul li a:hover{
+    color: grey;
+}
+
+#panel2 ul li a:hover{
+    color: grey;
+}
+
+#panel3 ul li a:hover{
+    color: grey;
+}
+
+#panel4 ul li a:hover{
+    color: grey;
+}
+
+#panel5 ul li a:hover{
+    color: grey;
+}
+
+#home-content .tabs-content{
+    background:none;
+    border:none;
+}
+
+ #home-content h1 {
+    color: #fff;
+    padding-top: 200px;
+    padding-left: 35px;
+}
+
+#home-content #panel1{
+    height: 975px;
+    background-position: 0 -44px;
+}
+
+#home-content #panel2{
+    height: 700px;
+}
+
+#home-content #panel3{
+    height: 965px;
+}
+
+#home-content #panel4{
+    height: 980px;
+}
+
+#home-content #panel5{
+    height: 980px;
+}
+
+.tab-p{
+    color: #FFF;
+    font-size: 24px;
+    width: 947px;
+    line-height: 27px;
+    margin-top: 385px;
+    margin-left: 50px;
+    
+}
+
+p a.button{
+    background-color: #ffd200;
+    font-size: 1em;
+    margin-left: 50px;
+}
+
+#panel0{
+    padding-top: 50px;
+}
+
+#panel0 p a.button{
+    margin-left: 45px;
+    margin-top: 25px;
+}
+
+#panel1 {
+    padding-top: 435px;
+    padding-left: 50px;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#panel1 ul li a {
+    color: #ffd200;
+}
+
+#panel2 {
+    padding-top: 435px;
+    padding-left: 50px;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#panel2 ul li a {
+    color: #ffd200;
+}
+    
+#panel3 {
+    padding-top: 435px;
+    padding-left: 50px;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#panel3 ul li a {
+    color: #ffd200;
+}
+
+#panel4 {
+    padding-top: 435px;
+    padding-left: 50px;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#panel4 ul li a {
+    color: #ffd200;
+}
+
+#panel5 {
+    padding-top: 435px;
+    padding-left: 50px;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#panel5 ul li a {
+    color: #ffd200;
+}
+    
+#div-size a {
+    background-repeat: no-repeat;
+    padding-left: 900px;
+    margin-top: -64px;
+    padding-bottom: 28px;
+}
+
+// MIDDLE CONTENT //
+
+#banner-middle{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/saf-rel-vers-prod_background.png);
+    background-position: 0 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 784px;
+    border: none;
+}
+
+#banner-middle div {
+    background-color: #ffd200;
+    opacity: .9;
+    border: none;
+    color: black;
+    display: inline-flex;
+    height: 800px;
+    
+    
+}
+
+#banner-middle a{
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 250px;
+    margin-top: 50px;
+}
+
+#banner-middle img{
+    width: 100px;
+    margin-left: 5px;
+    padding-bottom: 20px;
+}
+
+.home-middle h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_safety.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding-top: 120px;
+    height: 150px;
+    padding-bottom: 65px;
+}
+
+.home-middle:hover h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_safety-hover.png);
+}
+
+.home-middle:hover {
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 200px 610px;
+}
+
+.reliabilty h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_reliability.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-top: 120px;
+}
+
+.reliabilty:hover h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_reliability-hover.png);
+}
+
+.reliabilty:hover {
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 180px 610px;
+}
+
+.versatility h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_versatility.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-top: 120px;
+}
+
+.versatility:hover h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_versatility-hover.png);
+}
+
+.versatility:hover {
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 185px 610px;
+}
+
+.productivity h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_productivity.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-top: 120px;
+}
+
+.productivity:hover h2{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_productivity-hover.png);
+}
+
+.productivity:hover {
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 185px 610px;
+}
+
+#banner-middle div:hover{
+    color: white;
+    background: none;
+}
+
+#banner-middle a:hover{
+    color: white;
+}
+
+// FEATURED PRODUCTS //
+
+#products h2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding-bottom: 65px;
+}
+
+#products h3 a{
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#products div{
+    display: inline-block;
+    border: none;
+}
+
+#products .card:hover .card-section{
+    background: #ffd200;
+    border-radius: 10px;
+}
+
+#products .card:hover .card-section p a{
+    background: #fff;
+    color: black;
+}
+
+.card-section{
+    height: 310px;
+    margin-top: -75px;
+    width: 446px;
+}
+
+.First{
+    width: 538px;
+    padding-left: 92px;
+    margin-right: 100px;
+}
+
+.First img{
+    width: 370px;
+    border: 8px solid #414141;
+    margin-bottom: -25px;
+    position: relative;
+}
+
+.First h3{
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: -3px;
+    margin-top: 80px;
+    margin-left: -20px;
+}
+
+.First p{
+    font-size: 1.1em;
+    text-align: center;
+    width: 445px;
+    margin-left: -15px;
+}
+
+.First p a{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    margin-right: 65px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    width: 118px;
+    height: 40px;
+    border-radius: 10%;
+    font-size: 14px;
+}
+
+.Second{
+    width: 513px;
+    margin-right: 100px;
+    margin-left: 38px;
+    padding-left: 67px;
+}
+
+.Second img{
+    width: 370px;
+    margin-bottom: -23px;
+    margin-left: 37px;
+    border: 8px solid #414141;
+    position: relative;
+    
+}
+
+.Second .card-section h3{
+    margin-top: 90px;
+    margin-bottom: -3px;
+    margin-left: -7px;
+    text-align: center;
+}
+
+.Second p{
+    text-align: center;
+    font-size: 1.1em;
+    width: 450px;
+    margin-left: -18px;
+    margin-bottom: 1px;
+}
+
+.Second p a{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    width: 118px;
+    height: 40px;
+    border-radius: 10%;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 25px;
+}
+
+.Third{
+    width: 500px;
+    margin-left: 75px;
+}
+
+.Third img{
+    width: 370px;
+    margin-bottom: -24px;
+    margin-left: 38px;
+    border: 8px solid #414141;
+    position: relative;
+}
+
+.Third h3{
+    text-align: center;
+    padding-left: 0px;
+    margin-bottom: -3px;
+    margin-top: 100px;
+}
+
+.Third p{
+    text-align: center;
+    font-size: 1.1em;
+    padding-left: 15px;
+}
+
+.Third p a{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    width: 118px;
+    height: 40px;
+    border-radius: 10%;
+    font-size: 14px;
+    margin-left: -3px;
+    margin-bottom: 13px;
+    margin-top: 65px;
+}
+
+// Contact //
+
+footer div h3{
+    background-color: #ffd200;
+    font-weight: bold;
+    text-align: center;
+    height: 75px;
+    padding-top: 15px;
+}
+
+#footer-content{
+    background-color: #414141;
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/footer_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-top: -8px;
+    height: 390px;
+}
+
+.message p{
+    color: white;
+    padding-left: 855px;
+    font-size: 21px;
+    width: 1490px;
+    padding-top: 40px;
+    margin-bottom: -45px;
+}
+
+#footer-content form{
+    width: 675px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 372px;
+}
+
+#footer-content input{
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+#footer-content button{
+    background-color: #ffd200;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    width: 89px;
+    height: 47px;
+    border-radius: 7px;
+    margin-top: -8px;
+}
+
+#footer-content button:hover{
+    background-color: black;
+    color: white;
+}
+
+#footer-content textarea{
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.bottom-content {
+    background-color: #414141;
+    color: #fff;
+    height: 70px;
+    font-size: 1.2em;
+    padding-top: 23px;
+    padding-left: 20px;
+}
+
+.bottom-content a{
+    color: white;
+}
+
+.bottom-content a:hover{
+    color: #ffd200;
+}
+
+.bottom-middle-content h5{
+    color: white;
+    font-size: 2.5em;
+    margin-left: 350px;
+}
+
+.bottom-middle-content h6{
+    color: #ffd200;
+    font-size: 2.5em;
+    margin-left: 350px;
+}
+
+.colorchange{
+    color: #ffd200;
+}
+
+.bottom-middle-content p{
+    color: white;
+    font-size: 20px;
+    margin-left: 349px;
+}
+
+.bottom-middle-content p a{
+    color: white;
+}
+
+.bottom-middle-content p a:hover{
+    color: #ffd200;
+}
+
+.flag{
+    background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_american-flag.png);
+    background-repeat: no-repeat;
+}
+
+.flag span{
+    margin-left: 50px;
+}
+
+// MEDIA QUERY //
+@media print,
+screen and (max-width:64em) {
+    body{
+        width: 1028px;
+    }
+    .sticky.is-anchored{
+        position: relative;
+        right: 0;
+        left: 0;
+        top: 0;
+    }
+    h1{
+        font-size: 2.4em;
+        margin-top: -100px;
+        margin-left: -20px;
+        margin-bottom: -25px;
+    }
+    #home-content ul.tabs li {
+        display: block;
+        width: 100%;
+        font-size: 13px;
+        padding-bottom: 4px;
+    }
+    #home-content .tabs-panel{
+        margin-top: -610px;
+        margin-bottom: 32px;
+        height: 942px;
+    }
+    #home-content{
+        height: 1020px;
+    }
+    .tab-p{
+        margin-top: 28em;
+        margin-left: 20px;
+        font-size: 22px;
+        width: 920px;
+    }
+    .tabs-panel p a.button{
+        margin-left: 390px !important;
+        margin-top: -15px !important;
+    }
+    #home-content #panel0{
+        height: 1058px;
+    }
+    #home-content #panel1{
+        height: 1105px
+    }
+    #home-content #panel1 ul{
+        margin-top: 185px;
+        line-height: 30px;
+        margin-left: -15px;
+        font-size: 21px;
+    }
+    #home-content #panel2{
+        height: 1105px
+    }
+    #home-content #panel2 ul{
+        margin-top: 185px;
+        line-height: 30px;
+        margin-left: -15px;
+        font-size: 21px;
+    }
+    #home-content #panel2 p a.button{
+        margin-bottom: -50px;
+    }
+    #home-content #panel3{
+        height: 1105px
+    }
+    #home-content #panel3 ul{
+        margin-top: 185px;
+        line-height: 30px;
+        margin-left: -15px;
+        font-size: 21px;
+    }
+    #home-content #panel3 p a.button{
+        margin-bottom: -40px;
+    }
+    #home-content #panel4{
+        height: 1105px
+    }
+    #home-content #panel4 ul{
+        margin-top: 185px;
+        line-height: 30px;
+        margin-left: -15px;
+        font-size: 21px;
+    }
+    #home-content #panel4 p a.button{
+        margin-bottom: -40px;
+    }
+    #home-content #panel5{
+        height: 1105px
+    }
+    #home-content #panel5 ul{
+        margin-top: 185px;
+        line-height: 30px;
+        margin-left: -15px;
+        font-size: 21px;
+    }
+    #home-content #panel5 p a.button{
+        margin-bottom: -40px;
+    }
+    #div-size a {
+        display: none;
+    }
+    #banner-middle{
+        columns: 100px 4em;
+    }
+    #banner-middle #first-row{
+        width: 500px;
+        height: 785px;
+        display: block;
+        opacity: 1;
+        background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+        background-repeat: no-repeat;
+        background-position: 220px 300px;
+    }
+    #banner-middle #two-row{
+        width: 500px;
+        height: 785px;
+        display: block;
+        opacity: 1;
+        background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+        background-repeat: no-repeat;
+        background-position: 220px 300px;
+    }
+    #banner-middle #third-row{
+        width: 500px;
+        margin-left: -1002px;
+        margin-top: 392px;
+        display: block;
+        opacity: 1;
+        background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+        background-repeat: no-repeat;
+        background-position: 220px 300px;
+    }
+    #banner-middle #fourth-row{
+        width: 500px;
+        margin-top: 392px;
+        display: block;
+        opacity: 1;
+        background-image: url(https://devbierer.dubosewebgroup.com/assets/_img/icon_right-arrow.png);
+        background-repeat: no-repeat;
+        background-position: 220px 300px;
+    }
+    #banner-middle .callout{
+        height: 392px !important;
+        margin-bottom: 0px;
+    }
+    #banner-middle .callout a {
+        padding: 15px 15px 155px;
+    }
+    #banner-middle .callout p{
+        display: none;
+    }
+    .First{
+        margin-left: 205px;
+        margin-bottom: 50px;
+    }
+    .First .card-section{
+        background-color: #ffd200;
+        border-radius: 10px;
+    }
+    .First .card-section p a{
+        background-color: white;
+        border-radius: 5px;
+    }
+    .Second{
+        margin-left: 230px;
+        margin-bottom: 50px;
+    }
+    .Second .card-section{
+        background-color: #ffd200;
+        border-radius: 10px;
+    }
+    .Second .card-section p a{
+        background-color: white;
+        border-radius: 5px;
+    }
+    .Third{
+        margin-left: 295px;
+    }
+    .Third .card-section{
+        background-color: #ffd200;
+        border-radius: 10px;
+    }
+    .Third .card-section p a{
+        background-color: white;
+        border-radius: 5px;
+    }
+    .message p{
+        margin-left: -840px;
+        font-size: 17px;
+        width: 1380px;
+    }
+    #footer-content form{
+        width: 500px;
+        margin-right: 515px;
+    }
+    .bottom-middle-content {
+        margin-right: 160px;
+        margin-top: -320px;
+        float: right;
+    }
+    .bottom-middle-content h5{
+        font-size: 2.3em;
+    }
+    .bottom-middle-content p{
+        line-height: 20px;
+        font-size: 18px;
+    }
+    .flag{
+        background-size: 35px;
+        height: 50px;
+    }
+}
+
+@media print,
+screen and (max-width:40em) {
+    body{
+        width: 642px;
+    }
+    .tab-p{
+        width: 600px;
+        font-size: 23px;
+    }
+    #panel0 p a.button{
+        margin-left: 230px !important;
+        margin-top: 20px !important;
+    }
+    #panel1 p a.button{
+        margin-left: 200px !important;
+        margin-top: 10px !important;
+    }
+    #panel2 p a.button{
+        margin-left: 200px !important;
+        margin-top: 10px !important;
+    }
+    #panel3 p a.button{
+        margin-left: 200px !important;
+        margin-top: -55px !important;
+    }
+    #panel4 p a.button{
+        margin-left: 200px !important;
+        margin-top: -35px !important;
+    }
+    #panel5 p a.button{
+        margin-left: 200px !important;
+        margin-top: -35px !important;
+    }
+    #banner-middle{
+        position: relative;
+    }
+    #banner-middle #two-row{
+        display: block;
+        position: absolute;
+        height: 200px;
+        width: 400px;
+    }
+    #banner-middle #third-row{
+        width: 400px;
+        height: 200px;
+    }
+    #banner-middle #fourth-row{
+        width: 400px;
+        height: 200px;
+    }
+}

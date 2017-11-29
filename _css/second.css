@@ -1,0 +1,167 @@
+
+
+#home-content{
+    margin-top: -117px;
+}
+
+#home-content h1{
+    margin-bottom: -25px;
+    margin-top: 40px;
+}
+
+#home-content #panel1{
+    height: 880px;
+}
+
+#home-content #panel2{
+    height: 967px;
+}
+
+#home-content #panel3{
+    height: 880px;
+}
+
+#panel1 {
+  padding-top: 50px;
+}
+  
+#panel1 p{
+    color: #FFF;
+  font-size: 24px;
+  width: 947px;
+  line-height: 27px;
+  margin-left: 50px;
+}
+
+#panel1 p a.button {
+  margin-left: 0px;
+  margin-top: 25px; }
+
+#panel2 {
+  padding-top: 435px;
+  padding-left: 50px;
+  color: #fff;
+  font-size: 1.4em; }
+
+#panel2 p {
+  color: #fff; 
+  margin-top: -30px;  
+  line-height: 18px;
+}
+
+#panel2 p a {
+    color: #ffd200;
+}
+
+#panel2 p a.button{
+    margin-top: 40px;
+    margin-left: 0px;
+}
+
+#panel3 {
+  padding-top: 435px;
+  padding-left: 50px;
+  color: #fff;
+  font-size: 1.4em; }
+
+#panel3 p {
+  color: #fff; 
+  margin-top: -30px;
+  line-height: 18px;
+}
+
+#panel3 p a{
+    color: #ffd200;
+}
+
+#panel3 p a.button{
+    margin-top: 40px;
+    margin-left: 0px;
+}
+
+#panel4 {
+  padding-top: 435px;
+  padding-left: 50px;
+  color: #fff;
+  font-size: 1.4em; }
+
+#panel4 p {
+  color: #fff; 
+  margin-top: -30px;
+  line-height: 18px;
+}
+
+#panel4 p a {
+    color: #ffd200;
+}
+
+#panel4 p a.button{
+    margin-top: 40px;
+    margin-left: 0px;
+}
+
+#panel5 {
+  padding-top: 435px;
+  padding-left: 50px;
+  color: #fff;
+  font-size: 1.4em; }
+
+#panel5 p{
+  color: #fff; 
+  margin-top: -30px;
+  line-height: 18px;
+}
+
+#panel5 p a{
+    color: #ffd200;
+}
+
+#panel5 p a.button{
+    margin-top: 40px;
+    margin-left: 0px;
+}
+
+#panel6 {
+  padding-top: 435px;
+  padding-left: 50px;
+  color: #fff;
+  font-size: 1.4em; }
+  
+#panel6 p{
+  color: #fff; 
+  margin-top: -30px;
+  line-height: 18px;
+}
+
+#panel6 p a{
+    color: #ffd200;
+}
+
+#panel6 p a.button{
+    margin-top: 40px;
+    margin-left: 0px;
+}
+
+#panel1 #panel2 #panel3 #panel4 #panel5 #panel6 p a:hover{
+    color: grey;
+}
+  
+.tabs-panel p a.button{
+    color: black !important;
+}
+
+.home-middle:hover h2{
+    background-image: url({home_middle:hover_link});
+}
+
+.Third p a {
+    margin-top: 45px;
+}
+
+.First p a{
+    margin-top: 15px;
+}
+
+.foot{
+    margin-top: 80px;
+}
